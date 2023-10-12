@@ -1,0 +1,28 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int liczba1, liczba2, liczba3;
+
+    cout << "Podaj pierwsza liczbe calkowita: ";
+    cin >> liczba1;
+
+    cout << "Podaj druga liczbe calkowita: ";
+    cin >> liczba2;
+
+    cout << "Podaj trzecia liczbe calkowita: ";
+    cin >> liczba3;
+
+    if (liczba1 > liczba2 && liczba1 > liczba3) {
+        cout << "Najwieksza liczba to: " << liczba1 << endl;
+    }
+    else if (liczba2 > liczba1 && liczba2 > liczba3) {
+        cout << "Najwieksza liczba to: " << liczba2 << endl;
+    }
+    else {
+        cout << "Najwieksza liczba to: " << liczba3 << endl;
+    }
+
+    return 0;
+}
