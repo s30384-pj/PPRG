@@ -1,0 +1,22 @@
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Podaj wartosc n: ";
+    cin >> n;
+
+    int sum = 0;
+    int series_sum = 0;
+
+    for (int i = 1; i <= n; i++) {
+        sum += i;
+        series_sum += sum; 
+    }
+
+    cout << "Wartosc szeregu dla n = " << n << " wynosi: " << series_sum << endl;
+
+    return 0;
+ }

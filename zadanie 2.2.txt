@@ -1,0 +1,71 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int a, b;
+
+    // a) Pobieranie liczb "a" i "b" od użytkownika
+    cout << "Podaj liczbe 'a': ";
+    cin >> a;
+    cout << "Podaj liczbe 'b': ";
+    cin >> b;
+
+    // b) Wypisanie wiersza gwiazdek o długości "a"
+    cout << "b) Wiersz gwiazdek o dlugosci 'a':" << endl;
+    for (int i = 0; i < a; i++) {
+        cout << "*";
+    }
+    cout << endl;
+
+    // c) Wypisanie kolumny gwiazdek o długości "b"
+    cout << "c) Kolumna gwiazdek o dlugosci 'b':" << endl;
+    for (int i = 0; i < b; i++) {
+        cout << "*" << endl;
+    }
+
+    // d) Wypisanie wypełnionego prostokąta gwiazdek o wymiarach "a" na "b"
+    cout << "d) Wypelniony prostokat gwiazdek o wymiarach 'a' na 'b':" << endl;
+    for (int i = 0; i < b; i++) {
+        for (int j = 0; j < a; j++) {
+            cout << "*";
+        }
+        cout << endl;
+    }
+
+    // e) Wypisanie obwodu (obramowania) prostokąta gwiazdek o wymiarach "a" na "b"
+    cout << "e) Obwod prostokata gwiazdek o wymiarach 'a' na 'b':" << endl;
+    for (int i = 0; i < b; i++) {
+        for (int j = 0; j < a; j++) {
+            if (i == 0 || i == b - 1 || j == 0 || j == a - 1) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+
+    // f) Wypisanie trójkąta prostokątnego równoramiennego o pionowej przyprostokątnej o długości "a" i poziomej przyprostokątnej także o długości "a"
+    cout << "f) Trojkat prostokatny rownoramienny:" << endl;
+    for (int i = 1; i <= a; i++) {
+        for (int j = 0; j < i; j++) {
+            cout << "*";
+        }
+        cout << endl;
+    }
+
+    // g) Wypisanie trójkąta prostokątnego równoramiennego z gwiazdek w prawym górnym rogu
+    cout << "g) Trojkat prostokatny rownoramienny (odwrocony):" << endl;
+    for (int i = a; i > 0; i--) {
+        for (int j = 1; j <= a - i; j++) {
+            cout << " ";
+        }
+        for (int k = i; k > 0; k--) {
+            cout << "*";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
