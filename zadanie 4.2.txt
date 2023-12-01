@@ -1,0 +1,47 @@
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    // Pobierz liczbę elementów tablicy od użytkownika
+    int n;
+    cout << "Podaj liczbe elementow tablicy: ";
+    cin >> n;
+
+    // Utwórz dynamiczną tablicę o rozmiarze n
+    int* tablica = new int[n];
+
+    // Pobierz elementy tablicy od użytkownika
+    cout << "Podaj elementy tablicy:\n";
+    for (int i = 0; i < n; ++i) {
+        cout << "Element " << i + 1 << ": ";
+        cin >> tablica[i];
+    }
+
+    // Zlicz wystąpienia każdego elementu w tablicy
+    unordered_map<int, int> liczniki;
+    for (int i = 0; i < n; ++i) {
+        liczniki[tablica[i]]++;
+    }
+
+    // Znajdź element o największym liczniku
+    int najczestszy_element = tablica[0];
+    int najwiecej_wystapien = liczniki[tablica[0]];
+
+    for (int i = 1; i < n; ++i) {
+        if (liczniki[tablica[i]] > najwiecej_wystapien) {
+            najczestszy_element = tablica[i];
+            najwiecej_wystapien = liczniki[tablica[i]];
+        }
+    }
+
+    // Wyświetl wynik
+    cout << "Najczesciej wystepujacy element to: " << najczestszy_element << endl;
+
+    // Zwolnij pamięć po tablicy
+    delete[] tablica;
+
+    return 0;
+}

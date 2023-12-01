@@ -1,0 +1,48 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    const int rozmiar = 10;
+    int tablica[rozmiar][rozmiar];
+
+    // Inicjalizacja tablicy zgodnie z wymaganiami
+    for (int i = 0; i < rozmiar; ++i) {
+        for (int j = 0; j < rozmiar; ++j) {
+            if (j == 0) {
+                // Pierwsza kolumna: liczby od 0 do 9
+                tablica[i][j] = i;
+            }
+            else if (j == 1) {
+                // Druga kolumna: suma liczb z pierwszej kolumny
+                tablica[i][j] = i + i;
+            }
+            else if (j == 2) {
+                // Trzecia kolumna: kwadraty liczb z pierwszej kolumny
+                tablica[i][j] = i * i;
+            }
+            else if (j == 3) {
+                // Czwarta kolumna: suma numeru wiersza i numeru kolumny
+                tablica[i][j] = i + j;
+            }
+            else if (j == 4) {
+                // Piąta kolumna: różnica numeru wiersza i numeru kolumny
+                tablica[i][j] = i - j;
+            }
+            else {
+                // Pozostałe kolumny: 0
+                tablica[i][j] = 0;
+            }
+        }
+    }
+
+    // Wyświetlanie tablicy
+    for (int i = 0; i < rozmiar; ++i) {
+        for (int j = 0; j < rozmiar; ++j) {
+            cout << tablica[i][j] << "\t";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}

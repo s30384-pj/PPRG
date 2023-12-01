@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    // Pobierz liczbę elementów tablicy od użytkownika
+    int n;
+    cout << "Podaj liczbe elementow tablicy: ";
+    cin >> n;
+
+    // Utwórz dynamiczną tablicę o rozmiarze n
+    int* tablica = new int[n];
+
+    // Pobierz elementy tablicy od użytkownika
+    cout << "Podaj elementy tablicy:\n";
+    for (int i = 0; i < n; ++i) {
+        cout << "Element " << i + 1 << ": ";
+        cin >> tablica[i];
+    }
+
+    // Znajdź największy element w tablicy
+    int najwiekszy = tablica[0];
+    for (int i = 1; i < n; ++i) {
+        if (tablica[i] > najwiekszy) {
+            najwiekszy = tablica[i];
+        }
+    }
+
+    // Wyświetl wynik
+    cout << "Najwiekszy element w tablicy to: " << najwiekszy << endl;
+
+    // Zwolnij pamięć po tablicy
+    delete[] tablica;
+
+    return 0;
+}
