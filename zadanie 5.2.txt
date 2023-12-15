@@ -1,0 +1,45 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    // a) Wczytanie liczby wierszy i kolumn tablicy;
+    int liczba_wierszy, liczba_kolumn;
+    cout << "Podaj liczbe wierszy tablicy: ";
+    cin >> liczba_wierszy;
+    cout << "Podaj liczbe kolumn tablicy: ";
+    cin >> liczba_kolumn;
+
+    // b) Wczytanie tablicy liczb całkowitych;
+    vector<vector<int>> tablica(liczba_wierszy, vector<int>(liczba_kolumn, 0));
+    cout << "Podaj tablicę (elementy w kolumnach oddziel przecinkiem):\n";
+    for (int i = 0; i < liczba_wierszy; ++i) {
+        cout << "Wiersz " << i + 1 << ": ";
+        for (int j = 0; j < liczba_kolumn; ++j) {
+            cin >> tablica[i][j];
+            if (j < liczba_kolumn - 1)
+                cin.ignore();  // Ignorowanie przecinka.
+        }
+    }
+
+    // c) Zamiana miejscami elementów tablicy po przeciwnej stronie prostej pionowej;
+    for (int i = 0; i < liczba_wierszy; ++i) {
+        for (int j = 0; j < liczba_kolumn / 2; ++j) {
+            int temp = tablica[i][j];
+            tablica[i][j] = tablica[i][liczba_kolumn - 1 - j];
+            tablica[i][liczba_kolumn - 1 - j] = temp;
+        }
+    }
+
+    // d) Wyświetlenie tablicy po zamianie miejscami elementów;
+    cout << "Tablica po zamianie miejscami elementow:\n";
+    for (int i = 0; i < liczba_wierszy; ++i) {
+        for (int j = 0; j < liczba_kolumn; ++j) {
+            cout << tablica[i][j] << "\t";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}

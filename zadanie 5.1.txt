@@ -1,0 +1,42 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    // a) Użytkownik poda liczbę elementów wektora;
+    int n;
+    cout << "Podaj liczbe elementow wektora: ";
+    cin >> n;
+
+    // b) Pobrane zostaną od użytkownika wszystkie elementy wektora;
+    vector<int> wektor;
+    cout << "Podaj elementy wektora:\n";
+    for (int i = 0; i < n; ++i) {
+        int element;
+        cout << "Element " << i + 1 << ": ";
+        cin >> element;
+        wektor.push_back(element);
+    }
+
+    // c) Wskazana zostanie wartość elementu maksymalnego wektora;
+    int maxElement = wektor[0];
+    for (int i = 1; i < n; ++i) {
+        if (wektor[i] > maxElement) {
+            maxElement = wektor[i];
+        }
+    }
+    cout << "Wartosc elementu maksymalnego: " << maxElement << endl;
+
+    // d) Wskazany zostanie numer indeksu elementu maksymalnego;
+    int indeksMaxElementu = -1;
+    for (int i = 0; i < n; ++i) {
+        if (wektor[i] == maxElement) {
+            indeksMaxElementu = i;
+            break;  // Przerywamy pętlę, gdy znaleziono pierwsze wystąpienie maksimum.
+        }
+    }
+    cout << "Numer indeksu elementu maksymalnego: " << indeksMaxElementu << endl;
+
+    return 0;
+}
