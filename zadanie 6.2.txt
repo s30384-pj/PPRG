@@ -1,0 +1,114 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+const int NUM_STUDENTS = 6;
+const int NUM_SUBJECTS = 4;
+const int MIN_GRADE = 1;
+const int MAX_GRADE = 6;
+
+struct Student {
+    string name;
+    int grades[NUM_SUBJECTS];
+};
+
+void inputStudentData(Student &student, int studentNumber) {
+    cout << "Podaj ocene z informatyki dla ucznia " << student.name << " (1-6): ";
+    cin >> student.grades[0];
+
+    cout << "Podaj ocene z matematyki dla ucznia " << student.name << " (1-6): ";
+    cin >> student.grades[1];
+
+    cout << "Podaj ocene z biologii dla ucznia " << student.name << " (1-6): ";
+    cin >> student.grades[2];
+
+    cout << "Podaj ocene z jezyka polskiego dla ucznia " << student.name << " (1-6): ";
+    cin >> student.grades[3];
+}
+
+int main() {
+    Student students[NUM_STUDENTS] = {
+        {"Ala", {0, 0, 0, 0}},
+        {"Marek", {0, 0, 0, 0}},
+        {"Jarek", {0, 0, 0, 0}},
+        {"Darek", {0, 0, 0, 0}},
+        {"Kasia", {0, 0, 0, 0}},
+        {"Marta", {0, 0, 0, 0}}
+    };
+
+    // Informacje o przedmiotach
+    cout << "Cyfry odpowiadajace przedmiotom:\n"
+         << "1 - Informatyka\n"
+         << "2 - Matematyka\n"
+         << "3 - Biologia\n"
+         << "4 - Jezyk polski\n";
+
+    // Informacje o uczniach
+    cout << "Cyfry odpowiadajace uczniom:\n"
+         << "1 - Ala\n"
+         << "2 - Marek\n"
+         << "3 - Jarek\n"
+         << "4 - Darek\n"
+         << "5 - Kasia\n"
+         << "6 - Marta\n";
+
+    // Wczytanie danych uczniów
+    for (int i = 0; i < NUM_STUDENTS; ++i) {
+        inputStudentData(students[i], i);
+    }
+
+    // Pytania o oceny
+    int studentNumber, subjectNumber;
+
+    while (true) {
+        cout << "Podaj numer ucznia (1-6) lub wpisz -1 aby zakonczyc: ";
+        cin >> studentNumber;
+
+        if (studentNumber == -1) {
+            break;
+        }
+
+        if (studentNumber < 1 || studentNumber > NUM_STUDENTS) {
+            cout << "Niepoprawny numer ucznia. Sprobuj ponownie." << endl;
+            continue;
+        }
+
+        cout << "Podaj numer przedmiotu (1-4): ";
+        cin >> subjectNumber;
+
+        if (subjectNumber < 1 || subjectNumber > NUM_SUBJECTS) {
+            cout << "Niepoprawny numer przedmiotu. Sprobuj ponownie." << endl;
+            continue;
+        }
+
+        if (students[studentNumber - 1].grades[subjectNumber - 1] < MIN_GRADE ||
+            students[studentNumber - 1].grades[subjectNumber - 1] > MAX_GRADE) {
+            cout << "Niepoprawna ocena. Oceny musza byc w zakresie od " << MIN_GRADE << " do " << MAX_GRADE << "." << endl;
+            continue;
+        }
+
+        cout << "Ocena ucznia " << students[studentNumber - 1].name << " z przedmiotu ";
+
+        switch (subjectNumber) {
+            case 1:
+                cout << "Informatyka";
+                break;
+            case 2:
+                cout << "Matematyka";
+                break;
+            case 3:
+                cout << "Biologia";
+                break;
+            case 4:
+                cout << "Jezyk polski";
+                break;
+            default:
+                break;
+        }
+
+        cout << " to: " << students[studentNumber - 1].grades[subjectNumber - 1] << endl;
+    }
+
+    return 0;
+}

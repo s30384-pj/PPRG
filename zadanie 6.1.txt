@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+
+    // Pobranie wartości n od użytkownika
+    cout << "Podaj liczbe naturalna n: ";
+    cin >> n;
+
+    // Inicjalizacja licznika
+    int count = 0;
+
+    // Pętla sprawdzająca liczby podzielne przez 5 i niepodzielne przez 3
+    for (int i = 1; i <= n; ++i) {
+        if (i % 5 == 0 && i % 3 != 0) {
+            count++;
+        }
+    }
+
+    // Wyświetlenie wyniku
+    cout << "Liczba liczb naturalnych nie wiekszych od " << n << ", ktore sa podzielne przez 5, ale nie sa podzielne przez 3, to: " << count << endl;
+
+    return 0;
+}
