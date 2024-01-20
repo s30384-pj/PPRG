@@ -1,0 +1,45 @@
+#include <iostream>
+
+using namespace std;
+
+// Funkcja rekurencyjnie obliczająca silnię
+int silnia(int n) {
+    if (n == 0 || n == 1) {
+        return 1;
+    } else {
+        return n * silnia(n - 1);
+    }
+}
+
+int main() {
+    int liczba;
+
+    // Pobieranie liczby od użytkownika
+    cout << "Podaj liczbe: ";
+    cin >> liczba;
+
+    // Obliczanie silni
+    int wynik_silni = silnia(liczba);
+
+    // Wyświetlanie wyniku silni
+    cout << "Silnia z " << liczba << " to: " << wynik_silni << endl;
+
+    // Sprawdzanie podzielności przez 2, 3, 5 i 11
+    if (wynik_silni % 2 == 0) {
+        cout << wynik_silni << " jest podzielne przez 2." << endl;
+    }
+
+    if (wynik_silni % 3 == 0) {
+        cout << wynik_silni << " jest podzielne przez 3." << endl;
+    }
+
+    if (wynik_silni % 5 == 0) {
+        cout << wynik_silni << " jest podzielne przez 5." << endl;
+    }
+
+    if (wynik_silni % 11 == 0) {
+        cout << wynik_silni << " jest podzielne przez 11." << endl;
+    }
+
+    return 0;
+}

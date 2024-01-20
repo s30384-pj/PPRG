@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+const int rozmiar = 10;
+
+int main() {
+    double promien;
+
+    // Pobieranie długości promienia od użytkownika
+    cout << "Podaj dlugosc promienia kola: ";
+    cin >> promien;
+
+    // Obliczanie pola koła
+    double pole_kola = M_PI * pow(promien, 2);
+
+    // Tworzenie dwuwymiarowej tablicy o wymiarze 10x10
+    double tablica[rozmiar][rozmiar];
+
+    // Wypełnianie tablicy wartościami pola koła
+    for (int i = 0; i < rozmiar; ++i) {
+        for (int j = 0; j < rozmiar; ++j) {
+            tablica[i][j] = pole_kola;
+            pole_kola += 3.0;
+        }
+    }
+
+    // Wyświetlanie tablicy
+    cout << "Tablica dwuwymiarowa:" << endl;
+    for (int i = 0; i < rozmiar; ++i) {
+        for (int j = 0; j < rozmiar; ++j) {
+            cout << tablica[i][j] << "\t";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
